@@ -12,4 +12,4 @@ hping3 -c 1000 -d 120 -S -w 64 -p 21 --flood --rand-source <ip-target>
 - -p 21: Nhắm đến cổng 21 (dịch vụ FTP). 
 - --flood: Gửi gói tin nhanh nhất có thể. 
 - --rand-source: Sử dụng địa chỉ IP nguồn ngẫu nhiên (spoofing). 
-- `<ip-target>`: Địa chỉ IP đích của mục tiêu.
+- <ip-target>: Địa chỉ IP đích của mục tiêu.
