@@ -1,0 +1,5 @@
+- hosts: clients
+  become: yes
+  tasks:
+    - name: Block attacker IP using iptables
+      ansible.builtin.shell: iptables -A INPUT -s {{ ip }} -j DROP
