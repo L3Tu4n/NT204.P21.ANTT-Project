@@ -1,5 +1,0 @@
-# /etc/filebeat/modules.d/zeek.yml
-- module: zeek
-  smb_mapping:
-    enabled: true
-    var.paths: ["/opt/zeek/logs/current/smb_mapping.log"]
