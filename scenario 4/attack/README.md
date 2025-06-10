@@ -5,7 +5,7 @@
 enum4linux -a <ip-target>
 ```
 enum4linux: Công cụ dùng để thu thập thông tin từ các dịch vụ SMB (Server Message Block) đang chạy trên hệ thống mục tiêu.
-- `a`: Thực hiện tất cả các kiểm tra mặc định bao gồm:
+- `-a`: Thực hiện tất cả các kiểm tra mặc định bao gồm:
     - Danh sách người dùng (-U)
     - Danh sách nhóm (-G)
     - Danh sách chia sẻ (-S)
