@@ -1,0 +1,48 @@
+name: SMB Enumeration Detected
+type: any
+index: idps-logs-*
+timestamp_field: "@timestamp"
+
+filter:
+  - term:
+      event.module: "zeek"
+  - term:
+      fileset.name: "smb_mapping"
+  - term:
+      zeek.smb_mapping.share_type.keyword: "PIPE"
+  - regexp:
+      zeek.smb_mapping.path.keyword: ".*\\\\IPC\\$"
+
+alert:
+  - email
+  - command
+
+email:
+  - conchubong@gmail.com
+
+command:
+  - /opt/elastalert2/scripts/block_attacker.sh
+  - "{source[ip]}"
+
+alert_text_type: alert_text_only
+alert_text: |
+  🚨 Possible SMB Enumeration Detected!
+  Source IP: {0}
+  Destination IP: {1}
+  Path: {2}
+  Share Type: {3}
+  MITRE ATT&CK Tactic: {4}
+  MITRE ATT&CK Technique: {5} - {6}
+
+alert_text_args:
+  - source.ip
+  - destination.ip
+  - zeek.smb_mapping.path
+  - zeek.smb_mapping.share_type
+  - mitre_attack_tactic
+  - mitre_attack_technique_id
+  - mitre_attack_technique
+
+mitre_attack_tactic: "Discovery"
+mitre_attack_technique_id: "T1135"
+mitre_attack_technique: "Network Share Discovery"
